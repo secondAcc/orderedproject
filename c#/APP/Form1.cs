@@ -32,6 +32,9 @@ namespace APP
                 var source = engine.CreateScriptSourceFromFile("test.py");
                 source.Execute(scope);
                 Console.WriteLine("checked");
+                var test = scope.GetVariable<Func<object,object,object>>("sum");
+                var a = test(3,4);
+                Console.WriteLine(a.ToString(),a.GetType());
             }
             catch(Exception ex)
             {
